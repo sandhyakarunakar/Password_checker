@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Strength Checker</title>
+</head>
+<body bgcolor=yellow>
+    <h1 align=center>Password Strength Checker</h1>
+    <br>
+    <form method="post">
+        <label for="password">Enter a password:</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Check Strength">
+    </form>
+
+    {% if strength_level %}
+    <p>You entered this password: {{ entered_password }}</p>
+    <p>Password Strength: {{ strength_level }}</p>
+    <p>Feedback:</p>
+    <ul>
+        {% for criterion in feedback %}
+        <li>{{ criterion }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
